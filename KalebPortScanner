@@ -1,0 +1,26 @@
+import java.net.*;
+public class KalebPortScanner {
+
+	public static void main(String[] args) {
+		String host = "localhost"; // replace localhost with IP of device to scan
+
+		int startingPort = 0; 
+		int endingPort = 65535;
+		
+		for (int port=startingPort;port<=endingPort;port++) {	
+		
+			try {
+			Socket socket = new Socket();
+			socket.connect(new InetSocketAddress(host, port),100);
+			System.out.println(+port+ " open");
+			socket.close();
+
+		} catch (Exception e) {
+			// TODO: if port is closed
+
+		}
+		}
+
+	}
+
+}
